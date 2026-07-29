@@ -1,0 +1,1578 @@
+:root {
+    --olivo-oscuro: #3f4a28;
+    --olivo: #66733d;
+    --olivo-claro: #9ca77a;
+    --crema: #f7f2e7;
+    --crema-transparente: rgba(247, 242, 231, 0.94);
+    --rosa-tulipan: #d97b89;
+    --texto: #303624;
+    --blanco: #ffffff;
+    --sombra: rgba(28, 35, 18, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    color: var(--texto);
+    position: relative;
+isolation: isolate;
+    background:
+    radial-gradient(
+        ellipse at center,
+        rgba(255, 245, 220, .10) 0%,
+        rgba(255, 245, 220, .05) 28%,
+        rgba(0,0,0,0) 52%
+    ),
+
+    radial-gradient(
+        circle at 20% 15%,
+        rgba(255,248,225,.18),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(214,224,180,.14),
+        transparent 36%
+    ),
+
+    radial-gradient(
+        circle at 50% 45%,
+        rgba(255,226,170,.08),
+        transparent 42%
+    ),
+
+    linear-gradient(
+        145deg,
+        #495634 0%,
+        #6f7c4a 45%,
+        #879465 100%
+    );
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 241, 202, 0.18) 0%,
+        rgba(255, 241, 202, 0.08) 30%,
+        transparent 62%
+    );
+
+    opacity: 0.35;
+    animation: respirarLuz 10s ease-in-out infinite alternate;
+}
+
+@keyframes respirarLuz {
+    0% {
+        opacity: 0.25;
+        transform: scale(0.96);
+    }
+
+    100% {
+        opacity: 0.65;
+        transform: scale(1.05);
+    }
+}
+
+/* Toda la decoración queda detrás y no bloquea clics */
+
+.decoracion {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.tulipan {
+    position: absolute;
+    font-size: clamp(3rem, 7vw, 6rem);
+    opacity: 0.88;
+    filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.18));
+    animation: flotarTulipan 5s ease-in-out infinite;
+}
+
+/* Tulipanes de cristal del fondo */
+
+.tulipan-cristal {
+    position: absolute;
+    width: 170px;
+    height: 240px;
+    opacity: 0.18;
+    pointer-events: none;
+    filter: blur(0.4px);
+    animation: flotarCristal 7s ease-in-out infinite;
+}
+
+.tulipan-cristal::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 38px;
+    width: 95px;
+    height: 105px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.75),
+            rgba(217, 123, 137, 0.38)
+        );
+
+    border: 2px solid rgba(255, 255, 255, 0.42);
+
+    border-radius:
+        50% 50% 45% 45%
+        / 60% 60% 38% 38%;
+
+    clip-path: polygon(
+        0% 42%,
+        18% 0%,
+        47% 31%,
+        74% 0%,
+        100% 42%,
+        89% 82%,
+        50% 100%,
+        11% 82%
+    );
+
+    box-shadow:
+        inset 12px 10px 22px rgba(255, 255, 255, 0.28),
+        0 12px 25px rgba(29, 39, 20, 0.12);
+
+    backdrop-filter: blur(4px);
+}
+
+.tulipan-cristal::after {
+    content: "";
+    position: absolute;
+    top: 105px;
+    left: 82px;
+    width: 7px;
+    height: 130px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(230, 239, 211, 0.72),
+            rgba(91, 110, 59, 0.5)
+        );
+
+    box-shadow:
+        -25px 60px 0 -2px rgba(184, 199, 153, 0.38),
+        24px 82px 0 -2px rgba(184, 199, 153, 0.32);
+}
+
+.tulipan-cristal-1 {
+    top: -35px;
+    left: 2%;
+    transform: rotate(-17deg);
+}
+
+.tulipan-cristal-2 {
+    top: 5%;
+    right: 3%;
+    transform: rotate(15deg) scale(0.85);
+    animation-delay: 1.3s;
+}
+
+.tulipan-cristal-3 {
+    bottom: -45px;
+    left: 8%;
+    transform: rotate(11deg) scale(1.15);
+    animation-delay: 2.2s;
+}
+
+.tulipan-cristal-4 {
+    right: 7%;
+    bottom: -55px;
+    transform: rotate(-13deg);
+    animation-delay: 3.1s;
+}
+
+.tulipan-cristal-5 {
+    top: 40%;
+    left: 48%;
+    opacity: 0.08;
+    transform: translate(-50%, -50%) scale(1.7);
+    animation-delay: 1.8s;
+}
+
+@keyframes flotarCristal {
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -14px;
+    }
+}
+
+.petalo {
+    position: absolute;
+    top: -50px;
+    z-index: 1;
+    pointer-events: none;
+    animation: caerPetalo linear forwards;
+}
+
+/* Aplicación */
+
+.aplicacion {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.pantalla {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px;
+    place-items: center;
+    opacity: 0;
+}
+
+.pantalla.activa {
+    display: grid;
+   opacity: 1;
+animation: aparecerPantalla 0.75s ease-out;
+}
+
+.tarjeta {
+    position: relative;
+    width: min(92vw, 620px);
+    padding: 48px 42px;
+    text-align: center;
+    background: var(--crema-transparente);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 32px;
+    box-shadow: 0 24px 60px var(--sombra);
+    transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 36px 80px rgba(0, 0, 0, 0.18);
+}
+.tarjeta-grande {
+    width: min(94vw, 780px);
+}
+
+.icono-principal {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 4.5rem;
+    animation: respirar 2.5s ease-in-out infinite;
+}
+
+.subtitulo {
+    margin-bottom: 8px;
+    color: var(--olivo);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+h1,
+h2 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--olivo-oscuro);
+    line-height: 1.05;
+}
+
+h1 {
+    font-size: clamp(2.7rem, 7vw, 4.7rem);
+}
+
+h2 {
+    font-size: clamp(2.7rem, 7vw, 4.5rem);
+}
+
+.descripcion {
+    max-width: 500px;
+    margin: 18px auto 30px;
+    color: #586047;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.boton {
+    border: none;
+    border-radius: 999px;
+    padding: 15px 30px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+/* Interacción suave de los botones */
+
+.boton:hover {
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.03);
+}
+
+.boton:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.boton:focus-visible {
+    outline: 3px solid rgba(214, 112, 147, 0.28);
+    outline-offset: 4px;
+}
+
+.boton-principal {
+    color: var(--blanco);
+    background: var(--olivo);
+    box-shadow: 0 10px 24px rgba(63, 74, 40, 0.25);
+}
+
+.boton-principal:hover {
+    background: var(--olivo-oscuro);
+    box-shadow: 0 16px 36px rgba(63, 74, 40, 0.35);
+}
+
+.zona-botones {
+    position: relative;
+    display: flex;
+    min-height: 95px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.boton-no {
+    position: relative;
+    color: var(--blanco);
+    background: var(--rosa-tulipan);
+}
+
+.opciones-comida {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.opcion-comida {
+    display: flex;
+    min-height: 105px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    color: var(--texto);
+    background: var(--blanco);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.opcion-comida span {
+    font-size: 2rem;
+}
+
+.opcion-comida:hover {
+    transform: translateY(-4px);
+    border-color: var(--olivo-claro);
+    box-shadow: 0 12px 25px rgba(63, 74, 40, 0.12);
+}
+
+.opcion-comida.seleccionada {
+    color: var(--olivo-oscuro);
+    border-color: var(--olivo);
+    background: #eef0df;
+    box-shadow: 0 14px 30px rgba(63, 74, 40, 0.18);
+animation: seleccionarComida 0.45s ease-out;
+}
+.opcion-comida.atenuada {
+    opacity: 0.35;
+    transform: scale(0.94);
+    filter: grayscale(0.4);
+    pointer-events: none;
+}
+@keyframes seleccionarComida {
+    0% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+
+    70% {
+        transform: scale(0.98);
+    }
+
+    100% {
+        transform: scale(1.03);
+    }
+}
+
+.mensaje-seleccion {
+    min-height: 28px;
+    margin-top: 20px;
+    color: var(--olivo-oscuro);
+    font-weight: 600;
+}
+
+@keyframes flotarTulipan {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-14px) rotate(3deg);
+    }
+}
+
+@keyframes respirar {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes caerPetalo {
+    from {
+        transform: translate3d(0, -50px, 0) rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate3d(var(--movimiento-x), 110vh, 0)
+            rotate(var(--rotacion));
+    }
+}
+
+/* Celular */
+
+@media (max-width: 650px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .pantalla {
+        min-height: 100svh;
+        padding: 18px;
+    }
+
+    .tarjeta {
+        padding: 38px 22px;
+        border-radius: 26px;
+    }
+
+    .zona-botones {
+        min-height: 150px;
+        flex-direction: column;
+    }
+
+    .opciones-comida {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tulipan {
+        opacity: 0.55;
+    }
+}
+/* Barra de progreso */
+
+.progreso {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 28px;
+}
+
+.progreso span {
+    display: block;
+    margin-top: 8px;
+    color: var(--olivo);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.barra-progreso {
+    width: 100%;
+    height: 9px;
+    overflow: hidden;
+    background: #dedfce;
+    border-radius: 999px;
+}
+
+.avance {
+    height: 100%;
+    background: var(--olivo);
+    border-radius: 999px;
+    transition: width 0.5s ease;
+}
+
+.avance-fecha {
+    width: 50%;
+}
+
+/* Selector de fecha */
+
+.contenedor-fecha {
+    width: min(100%, 390px);
+    margin: 0 auto 24px;
+}
+
+#fecha-cita {
+    width: 100%;
+    padding: 16px 18px;
+    border: 2px solid #d5d9be;
+    border-radius: 16px;
+    outline: none;
+    color: var(--olivo-oscuro);
+    background: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#fecha-cita:focus {
+    border-color: var(--olivo);
+    box-shadow: 0 0 0 4px rgba(102, 115, 61, 0.15);
+}
+
+.fecha-elegida {
+    min-height: 24px;
+    margin-top: 14px;
+    color: var(--olivo-oscuro);
+    font-weight: 600;
+}
+
+.boton:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.boton:disabled:hover {
+    transform: none;
+    background: var(--olivo);
+}
+/* Pantalla para elegir horario */
+
+.avance-horario {
+    width: 75%;
+}
+
+.opciones-horario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    width: min(100%, 430px);
+    margin: 26px auto 20px;
+}
+
+.opcion-horario {
+    padding: 17px 16px;
+    border: 2px solid transparent;
+    border-radius: 18px;
+    color: var(--olivo-oscuro);
+    background: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.opcion-horario:hover {
+    transform: translateY(-3px);
+    border-color: var(--olivo-claro);
+    box-shadow: 0 10px 22px rgba(63, 74, 40, 0.14);
+}
+
+.opcion-horario.seleccionada {
+    border-color: var(--olivo);
+    color: var(--olivo-oscuro);
+    background: #eef0df;
+    box-shadow: 0 10px 22px rgba(63, 74, 40, 0.15);
+}
+
+.horario-elegido {
+    min-height: 28px;
+    margin-bottom: 22px;
+    color: var(--olivo-oscuro);
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .opciones-horario {
+        grid-template-columns: 1fr;
+    }
+}
+/* Pantalla después de aceptar */
+
+.tarjeta-acepto {
+    animation: aparecerAcepto 0.6s ease;
+}
+
+.mensaje-acepto {
+    max-width: 440px;
+    margin: 14px auto 28px;
+    color: var(--olivo-oscuro);
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+
+@keyframes aparecerAcepto {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* Pantalla de máquina de escribir */
+
+.tarjeta-mensaje {
+    min-height: 410px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-maquina {
+    max-width: 520px;
+    min-height: 150px;
+    margin: 18px auto 28px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#texto-maquina {
+    color: var(--olivo-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.35rem, 4vw, 2rem);
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.cursor-maquina {
+    margin-left: 4px;
+    color: var(--olivo-oscuro);
+    font-size: 2rem;
+    animation: parpadearCursor 0.8s infinite;
+}
+
+.boton-oculto {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    pointer-events: none;
+}
+
+.boton-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+@keyframes parpadearCursor {
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+/* Pantalla de resumen */
+
+.tarjeta-resumen {
+    animation: aparecerResumen 0.7s ease;
+}
+
+.texto-resumen {
+    max-width: 480px;
+    margin: 12px auto 24px;
+    color: var(--olivo-oscuro);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.detalles-cita {
+    width: min(100%, 470px);
+    margin: 0 auto 24px;
+    display: grid;
+    gap: 12px;
+}
+
+.detalle-cita {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 18px;
+    text-align: left;
+    border: 1px solid rgba(72, 81, 53, 0.16);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 22px rgba(55, 63, 42, 0.06);
+}
+
+.detalle-icono {
+    flex-shrink: 0;
+    font-size: 1.8rem;
+}
+
+.detalle-cita div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.detalle-titulo {
+    color: rgba(72, 81, 53, 0.7);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.detalle-cita strong {
+    color: var(--olivo-oscuro);
+    font-size: 1.05rem;
+}
+
+.mensaje-final-resumen {
+    margin: 8px auto 22px;
+    color: var(--olivo-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.12rem;
+}
+
+@keyframes aparecerResumen {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* Pantalla final */
+
+.tarjeta-final {
+    position: relative;
+    overflow: hidden;
+    animation: aparecerFinal 0.8s ease;
+}
+
+.icono-final {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 3.4rem;
+    animation: flotarTulipan 2.4s ease-in-out infinite;
+}
+
+.texto-final {
+    margin: 16px auto 8px;
+    color: var(--olivo-oscuro);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.mensaje-final {
+    margin: 10px auto 24px;
+    color: var(--olivo-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.firma-final {
+    display: block;
+    color: rgba(72, 81, 53, 0.7);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+@keyframes aparecerFinal {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes flotarTulipan {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-9px) rotate(3deg);
+    }
+}
+
+
+@keyframes caerConfeti {
+    0% {
+        opacity: 1;
+        transform:
+            translateY(-10vh)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(115vh)
+            rotate(720deg);
+    }
+}
+/* Pantalla final */
+
+.tarjeta-final {
+    position: relative;
+    overflow: hidden;
+    animation: aparecerFinal 0.8s ease;
+}
+
+.icono-final {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 3.4rem;
+    animation: flotarTulipan 2.4s ease-in-out infinite;
+}
+
+.texto-final {
+    margin: 16px auto 8px;
+    color: var(--olivo-oscuro);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.mensaje-final {
+    margin: 10px auto 24px;
+    color: var(--olivo-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.firma-final {
+    display: block;
+    margin-bottom: 24px;
+    color: rgba(72, 81, 53, 0.7);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+@keyframes aparecerFinal {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes flotarTulipan {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-9px) rotate(3deg);
+    }
+}
+/* Entrada escalonada de la pantalla final */
+
+.tarjeta-final .subtitulo,
+.tarjeta-final h2,
+.tarjeta-final .texto-final,
+.tarjeta-final .mensaje-final,
+.tarjeta-final .firma-final,
+.tarjeta-final #boton-final-prueba {
+    opacity: 0;
+    animation: aparecerElementoFinal 0.7s ease forwards;
+}
+
+.tarjeta-final .subtitulo {
+    animation-delay: 0.25s;
+}
+
+.tarjeta-final h2 {
+    animation-delay: 0.45s;
+}
+
+.tarjeta-final .texto-final {
+    animation-delay: 0.65s;
+}
+
+.tarjeta-final .mensaje-final {
+    animation-delay: 0.85s;
+}
+
+.tarjeta-final .firma-final {
+    animation-delay: 1.05s;
+}
+
+.tarjeta-final #boton-final-prueba {
+    animation-delay: 1.25s;
+}
+
+@keyframes aparecerElementoFinal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Transición suave entre pantallas */
+
+@keyframes aparecerPantalla {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes salirPantalla {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+.pantalla.saliendo {
+    animation: salirPantalla 0.35s ease-in forwards;
+    pointer-events: none;
+}
+/* Aparición escalonada del contenido de cada pantalla */
+
+.pantalla.activa .tarjeta:not(.tarjeta-final) > * {
+    opacity: 0;
+    animation: aparecerContenido 0.55s ease-out forwards;
+}
+
+.pantalla.activa .tarjeta:not(.tarjeta-final) > *:nth-child(1) {
+    animation-delay: 0.12s;
+}
+
+.pantalla.activa .tarjeta:not(.tarjeta-final) > *:nth-child(2) {
+    animation-delay: 0.22s;
+}
+
+.pantalla.activa .tarjeta:not(.tarjeta-final) > *:nth-child(3) {
+    animation-delay: 0.32s;
+}
+
+.pantalla.activa .tarjeta:not(.tarjeta-final) > *:nth-child(4) {
+    animation-delay: 0.42s;
+}
+
+.pantalla.activa .tarjeta:not(.tarjeta-final) > *:nth-child(5) {
+    animation-delay: 0.52s;
+}
+
+.pantalla.activa .tarjeta:not(.tarjeta-final) > *:nth-child(6) {
+    animation-delay: 0.62s;
+}
+
+@keyframes aparecerContenido {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Celebración al aceptar */
+
+.boton.celebrando {
+    animation: celebrarBoton 0.55s ease-out;
+    pointer-events: none;
+}
+
+@keyframes celebrarBoton {
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(1.12);
+    }
+
+    60% {
+        transform: scale(0.96);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+/* Explosión de pétalos al aceptar */
+
+.petalo-celebracion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+
+    pointer-events: none;
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.3);
+
+    animation:
+        explotarPetalo 1.1s
+        cubic-bezier(0.17, 0.67, 0.35, 1.2)
+        forwards;
+}
+
+@keyframes explotarPetalo {
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0.3)
+            rotate(0deg);
+    }
+
+    18% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1.15)
+            rotate(20deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(
+                calc(-50% + var(--destino-x)),
+                calc(-50% + var(--destino-y))
+            )
+            scale(0.7)
+            rotate(var(--rotacion-final));
+    }
+}
+/* Barra de progreso de la invitación */
+
+.progreso-invitacion {
+    position: fixed;
+    top: 22px;
+    left: 50%;
+    z-index: 5000;
+
+    width: min(68vw, 320px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateX(-50%)
+        translateY(-10px);
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease,
+        transform 0.4s ease;
+}
+
+.progreso-invitacion.visible {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+.progreso-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    margin-bottom: 10px;
+
+    color: #fffaf3;
+    text-align: center;
+}
+#progreso-paso {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
+}
+
+#progreso-titulo {
+    max-width: 100%;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    text-align: center;
+    white-space: normal;
+
+    opacity: 0.82;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
+}
+
+.progreso-barra {
+    width: 100%;
+    height: 6px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 999px;
+
+    box-shadow:
+        0 6px 18px rgba(91, 70, 74, 0.12),
+        inset 0 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+.progreso-relleno {
+    width: 12.5%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #f2b8c6,
+        #f8cad5,
+        #efabc0
+    );
+
+    border-radius: inherit;
+
+    box-shadow:
+        0 0 12px rgba(239, 171, 192, 0.55);
+
+    transition:
+        width 0.65s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 600px) {
+    .progreso-invitacion {
+    top: 26px;
+    width: 78vw;
+}
+
+    .progreso-texto {
+        font-size: 0.68rem;
+    }
+#progreso-paso {
+    font-size: .74rem;
+    letter-spacing: .08em;
+    font-weight: 700;
+}
+    .progreso-barra {
+        height: 8px;
+    }
+}
+
+#pantalla-resumen .tarjeta {
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+/* =========================================
+   PANTALLA DE CARGA
+========================================= */
+
+.pantalla-carga {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+    background:
+        radial-gradient(
+            circle at center,
+            #fff8f5 0%,
+            #fce1e6 55%,
+            #f5c3cf 100%
+        );
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+}
+
+.pantalla-carga.oculta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.carga-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.carga-tulipan {
+    font-size: clamp(58px, 16vw, 90px);
+    line-height: 1;
+
+    animation:
+    aparecerTulipan 0.8s ease-out,
+    flotarTulipan 1.6s ease-in-out 0.8s infinite;
+}
+
+.carga-texto {
+    margin: 22px 0 14px;
+
+    color: #7a4b57;
+    font-size: clamp(18px, 5vw, 24px);
+    font-weight: 600;
+    opacity: 0;
+transform: translateY(8px);
+animation: aparecerTexto 0.6s ease-out 0.75s forwards;
+}
+
+.carga-puntos {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+animation: aparecerPuntos 0.4s ease-out 1.2s forwards;
+}
+
+.carga-puntos span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background-color: #d97891;
+
+    animation: saltarPunto 1.2s ease-in-out infinite;
+}
+
+.carga-puntos span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.carga-puntos span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+@keyframes aparecerTulipan {
+
+    0%{
+        transform: scale(0.2) rotate(-35deg);
+        opacity:0;
+    }
+
+    55%{
+        transform: scale(1.18) rotate(6deg);
+        opacity:1;
+    }
+
+    75%{
+        transform: scale(0.95);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+
+}
+@keyframes flotarTulipan {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+@keyframes aparecerTexto {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecerPuntos {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+@keyframes saltarPunto {
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.45;
+    }
+
+    30% {
+        transform: translateY(-7px);
+        opacity: 1;
+    }
+}
+/*==============================
+PANTALLA FRASE
+==============================*/
+
+.pantalla-frase {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9998;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(255, 214, 224, 0.75),
+        transparent 42%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(236, 198, 217, 0.65),
+        transparent 45%
+    ),
+    linear-gradient(
+        145deg,
+        #fff8f6 0%,
+        #fceef1 50%,
+        #f7e5eb 100%
+    );
+
+    opacity: 1;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.pantalla-frase.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.pantalla-frase.ocultando {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.frase-contenido{
+
+    text-align:center;
+    max-width:560px;
+    padding: 52px 42px;
+border-radius: 28px;
+
+background: rgba(255, 255, 255, 0.42);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+
+box-shadow:
+    0 10px 28px rgba(188, 152, 165, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+}
+
+.frase-linea{
+
+    opacity:0;
+
+    transform:translateY(18px);
+
+    color:#7a4b57;
+
+    line-height:1.6;
+
+    font-size:clamp(22px,5vw,34px);
+
+}
+
+.linea1,
+.linea2,
+.linea3,
+.linea4,
+.frase-tulipan {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: none;
+}
+
+.frase-corazon {
+    opacity: 0;
+    transform: scale(0.7);
+    animation: none;
+}
+
+.pantalla-frase.visible .linea1{
+
+    animation: aparecerFrase 1.35s .3s forwards;
+
+}
+
+.pantalla-frase.visible .linea2{
+
+    animation: aparecerFrase 1.35s .9s forwards;
+
+}
+
+.pantalla-frase.visible .frase-corazon{
+
+    animation: latidoCorazon 1.2s 1.8s forwards;
+}
+
+
+
+.pantalla-frase.visible .linea3{
+
+    animation: aparecerFrase 1.35s 2.2s forwards;
+
+}
+
+.pantalla-frase.visible .linea4{
+
+    animation: aparecerFrase 1.35s 2.8s forwards;
+
+}
+
+.pantalla-frase.visible .frase-tulipan{
+
+    animation: aparecerFrase 1.35s 3.5s forwards;
+
+}
+
+@keyframes aparecerFrase {
+    0% {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    40% {
+        opacity: 0.35;
+        transform: translateY(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes latidoCorazon {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    45% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+
+    70% {
+        transform: scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

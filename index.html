@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Una invitación para ti 🌷</title>
+
+    <meta
+        name="description"
+        content="Tengo una invitación especial para ti 🌷"
+    >
+
+    <meta property="og:title" content="🌷 Una invitación para ti">
+
+    <meta
+        property="og:description"
+        content="Tengo una invitación especial para ti..."
+    >
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:image" content="preview.png">
+
+    <meta property="og:image:type" content="image/png">
+
+    <meta property="og:image:width" content="1536">
+
+    <meta property="og:image:height" content="1024">
+
+    <meta property="og:locale" content="es_MX">
+
+    <meta name="theme-color" content="#f8b8c8">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Pantalla de carga -->
+    <div id="pantalla-carga" class="pantalla-carga">
+
+        <div class="carga-contenido">
+
+            <div class="carga-tulipan">
+                🌷
+            </div>
+
+            <p class="carga-texto">
+                Preparando una sorpresa para ti...
+            </p>
+
+            <div class="carga-puntos" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Pantalla de la frase -->
+    <div id="pantalla-frase" class="pantalla-frase">
+
+        <div class="frase-contenido">
+
+            <p class="frase-linea linea1">
+                Hay personas...
+            </p>
+
+            <p class="frase-linea linea2">
+                que llegan sin avisar para cambiar nuestros días...
+            </p>
+
+            <div class="frase-corazon">
+                💚
+            </div>
+
+            <p class="frase-linea linea3">
+                Y otras...
+            </p>
+
+            <p class="frase-linea linea4">
+                para cambiar nuestra vida.
+            </p>
+
+            <div class="frase-tulipan">
+                🌷
+            </div>
+
+        </div>
+
+    </div>
+
+ <div class="progreso-invitacion" id="progreso-invitacion">
+    <div class="progreso-texto">
+        <span id="progreso-paso">🌷 Paso 1 de 8</span>
+        <span id="progreso-titulo">La pregunta importante</span>
+    </div>
+
+    <div class="progreso-barra">
+        <div
+            class="progreso-relleno"
+            id="progreso-relleno"
+        ></div>
+    </div>
+</div>
+
+    <!-- Decoración que nunca bloquea los clics -->
+    <div class="decoracion" aria-hidden="true">
+       <div class="tulipan-cristal tulipan-cristal-1"></div>
+<div class="tulipan-cristal tulipan-cristal-2"></div>
+<div class="tulipan-cristal tulipan-cristal-3"></div>
+<div class="tulipan-cristal tulipan-cristal-4"></div>
+<div class="tulipan-cristal tulipan-cristal-5"></div>
+
+        <div id="petalos"></div>
+    </div>
+
+    <main class="aplicacion">
+
+        <!-- Pantalla 1 -->
+        <section class="pantalla activa" id="pantalla-inicio">
+            <div class="tarjeta">
+                <span class="icono-principal">🌷</span>
+
+                <p class="subtitulo">Tengo una sorpresa para ti</p>
+
+                <h1>Hay algo especial que quiero preguntarte</h1>
+
+                <p class="descripcion">
+                    Preparé este pequeño detalle pensando en ti.
+                </p>
+
+                <button class="boton boton-principal" id="boton-comenzar">
+                    Comenzar
+                </button>
+            </div>
+        </section>
+
+        <!-- Pantalla 2 -->
+        <section class="pantalla" id="pantalla-pregunta">
+            <div class="tarjeta">
+                <span class="icono-principal">🌷</span>
+
+                <p class="subtitulo">La pregunta importante</p>
+
+                <h2>¿Quieres salir conmigo?</h2>
+
+                <p class="descripcion">
+                    Prometo que será una cita bonita y especial.
+                </p>
+
+                <div class="zona-botones" id="zona-botones">
+                    <button class="boton boton-principal" id="boton-si">
+                        Sí, quiero 💚
+                    </button>
+
+                    <button class="boton boton-no" id="boton-no">
+                        No
+                    </button>
+                </div>
+            </div>
+        </section>
+<!-- Pantalla después de aceptar la invitación -->
+<section class="pantalla" id="pantalla-acepto">
+    <div class="tarjeta tarjeta-acepto">
+
+        <span class="icono-principal">😄</span>
+
+        <p class="subtitulo">Buena elección...</p>
+
+        <h2>Sabía que dirías que sí</h2>
+
+        <p class="mensaje-acepto">
+            Bueno... al menos eso esperaba,
+            porque parece que huyes de mí y me confundes demasido 😂
+        </p>
+
+        <button
+            class="boton boton-principal"
+            id="boton-continuar-acepto"
+        >
+            Continuemos →
+        </button>
+
+    </div>
+</section>
+        <!-- Pantalla 3 -->
+        <section class="pantalla" id="pantalla-comida">
+            <div class="tarjeta tarjeta-grande">
+                <span class="icono-principal">🍽️</span>
+
+                <p class="subtitulo">Excelente elección</p>
+
+                <h2>¿Qué se te antoja comer?</h2>
+
+                <p class="descripcion">
+                    Escoge tu opción favorita.
+                </p>
+
+                <div class="opciones-comida">
+                    <button class="opcion-comida" data-comida="Pizza">
+                        <span>🍕</span>
+                        Pizza
+                    </button>
+
+                    <button class="opcion-comida" data-comida="Sushi">
+                        <span>🍣</span>
+                        Sushi
+                    </button>
+
+                    <button class="opcion-comida" data-comida="Tacos">
+                        <span>🌮</span>
+                        Tacos
+                    </button>
+
+                    <button class="opcion-comida" data-comida="Pasta">
+                        <span>🍝</span>
+                        Pasta
+                    </button>
+
+                    <button class="opcion-comida" data-comida="Ramen">
+                        <span>🍜</span>
+                        Ramen
+                    </button>
+
+                    <button class="opcion-comida" data-comida="Hamburguesa">
+                        <span>🍔</span>
+                        Hamburguesa
+                    </button>
+                </div>
+
+                <p class="mensaje-seleccion" id="mensaje-seleccion"></p>
+            </div>
+        </section>
+<!-- Pantalla 4: elegir fecha -->
+<section class="pantalla" id="pantalla-fecha">
+    <div class="tarjeta">
+
+        <span class="icono-principal">📅</span>
+
+        <p class="subtitulo">Ahora dime...</p>
+
+        <h2>¿Qué día te queda bien?</h2>
+
+        <p class="descripcion">
+            Elige la fecha que más te acomode para nuestra cita 🌷
+        </p>
+
+        <div class="contenedor-fecha">
+            <input type="date" id="fecha-cita">
+
+            <p class="fecha-elegida" id="fecha-elegida">
+                Todavía no has elegido una fecha.
+            </p>
+        </div>
+
+        <button
+            class="boton boton-principal"
+            id="boton-continuar-fecha"
+            disabled
+        >
+            Continuar →
+        </button>
+
+    </div>
+</section>
+<!-- Pantalla 5: elegir horario -->
+<section class="pantalla" id="pantalla-horario">
+    <div class="tarjeta">
+
+        <div class="progreso">
+        
+        <span class="icono-principal">🌷</span>
+
+        <h2>¿A qué hora te gustaría?</h2>
+
+        <p class="descripcion">
+            Elige el horario que más te guste para nuestra cita 🌷
+        </p>
+
+        <div class="opciones-horario">
+
+            <button class="opcion-horario" data-horario="2:00 p. m.">
+                2:00 p. m.
+            </button>
+
+            <button class="opcion-horario" data-horario="4:00 p. m.">
+                4:00 p. m.
+            </button>
+
+            <button class="opcion-horario" data-horario="6:00 p. m.">
+                6:00 p. m.
+            </button>
+
+            <button class="opcion-horario" data-horario="8:00 p. m.">
+                8:00 p. m.
+            </button>
+
+        </div>
+
+        <p class="horario-elegido" id="horario-elegido">
+            Todavía no has elegido un horario.
+        </p>
+
+        <button
+            class="boton boton-principal"
+            id="boton-continuar-horario"
+            disabled
+        >
+            Continuar →
+        </button>
+
+    </div>
+</section>
+<!-- Pantalla de mensaje especial -->
+<section class="pantalla" id="pantalla-mensaje">
+    <div class="tarjeta tarjeta-mensaje">
+
+        <span class="icono-principal">🌷</span>
+
+        <p class="subtitulo">Un momento...</p>
+
+        <div class="contenedor-maquina">
+            <p id="texto-maquina"></p>
+            <span class="cursor-maquina">|</span>
+        </div>
+
+        <button
+            class="boton boton-principal boton-oculto"
+            id="boton-ver-resumen"
+        >
+            Ver nuestro plan →
+        </button>
+
+    </div>
+</section>
+<!-- Pantalla de resumen -->
+<section class="pantalla" id="pantalla-resumen">
+    <div class="tarjeta tarjeta-resumen">
+
+        <span class="icono-principal">🌷</span>
+
+        <p class="subtitulo">TODO LISTO</p>
+
+        <h2>Este es nuestro plan</h2>
+
+        <p class="texto-resumen">
+            Ya hiciste tu parte. Ahora me toca encontrar el lugar perfecto.
+        </p>
+
+        <div class="detalles-cita">
+
+            <div class="detalle-cita">
+                <span class="detalle-icono">🍽️</span>
+
+                <div>
+                    <span class="detalle-titulo">Comida</span>
+                    <strong id="resumen-comida">Sin elegir</strong>
+                </div>
+            </div>
+
+            <div class="detalle-cita">
+                <span class="detalle-icono">📅</span>
+
+                <div>
+                    <span class="detalle-titulo">Fecha</span>
+                    <strong id="resumen-fecha">Sin elegir</strong>
+                </div>
+            </div>
+
+            <div class="detalle-cita">
+                <span class="detalle-icono">🕒</span>
+
+                <div>
+                    <span class="detalle-titulo">Horario</span>
+                    <strong id="resumen-horario">Sin elegir</strong>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="mensaje-final-resumen">
+            Ahora sí... oficialmente tenemos un plan 😄
+        </p>
+
+        <button
+            class="boton boton-principal"
+            id="boton-enviar-whatsapp"
+        >
+           Confirmar el plan 🌷  💬
+        </button>
+
+    </div>
+</section>
+<!-- Pantalla final -->
+<section class="pantalla" id="pantalla-final">
+    <div class="tarjeta tarjeta-final">
+
+        <span class="icono-final">🌷</span>
+
+        <p class="subtitulo">MISIÓN CUMPLIDA</p>
+
+        <h2>Oficialmente tenemos un plan</h2>
+
+        <p class="texto-final">
+            Gracias por seguirme el juego.
+        </p>
+
+        <p class="mensaje-final">
+            Ahora me toca hacer que valga la pena 😊
+        </p>
+
+        <span class="firma-final">
+            Nos vemos pronto.
+        </span>
+
+        <button
+            class="boton boton-principal"
+            id="boton-final-prueba"
+        >
+            Ver nuestro plan 🌷
+        </button>
+
+    </div>
+</section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
