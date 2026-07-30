@@ -515,7 +515,7 @@ animation: seleccionarComida 0.45s ease-out;
 .progreso {
     width: 100%;
     max-width: 420px;
-    margin: 0 auto 28px;
+    margin: 16px auto 45px;
 }
 
 .progreso span {
@@ -650,6 +650,47 @@ animation: seleccionarComida 0.45s ease-out;
 
 .tarjeta-acepto {
     animation: aparecerAcepto 0.6s ease;
+}
+.titulo-acepto{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.15rem, 3.2vw, 3.25rem);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--olivo-oscuro);
+    text-align: center;
+
+    width: 100%;
+    max-width: 620px;
+    margin: 18px auto 12px;
+}
+.titulo-acepto span{
+    display: block;
+    color: var(--olivo-oscuro);
+    font-size: 0.62em;
+    font-weight: 500;
+    margin-top: 10px;
+    white-space: nowrap;
+}
+.separador-corazon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 18px auto 24px;
+}
+
+.separador-corazon span{
+    width: 75px;
+    height: 2px;
+    background: var(--olivo);
+    border-radius: 999px;
+}
+
+.separador-corazon b{
+    color: #e987aa;
+    font-size: 1.6rem;
+    line-height: 1;
+    font-weight: 400;
 }
 
 .mensaje-acepto {
