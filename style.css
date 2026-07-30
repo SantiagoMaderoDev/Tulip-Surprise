@@ -248,9 +248,12 @@ body::before {
 .pantalla {
     display: none;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: 24px;
-    place-items: center;
+    box-sizing: border-box;
+    overflow-y: auto;
+    align-content: safe center;
+    justify-items: center;
     opacity: 0;
 }
 
@@ -270,9 +273,10 @@ animation: aparecerPantalla 0.75s ease-out;
     border-radius: 32px;
     box-shadow: 0 24px 60px var(--sombra);
     transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
+
 .tarjeta:hover {
     transform: translateY(-8px);
     box-shadow: 0 36px 80px rgba(0, 0, 0, 0.18);
@@ -1617,3 +1621,4 @@ box-shadow:
         transform: scale(1);
     }
 }
+
