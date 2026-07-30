@@ -1621,4 +1621,6 @@ box-shadow:
         transform: scale(1);
     }
 }
-
+#pantalla-resumen .progreso{
+    display: none;
+}

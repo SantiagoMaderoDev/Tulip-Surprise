@@ -475,6 +475,12 @@ function celebrarConPetalos() {
 
 setInterval(crearPetalo, 900);
 botonFinalPrueba.addEventListener("click", () => {
+    const progreso = document.getElementById("progreso-invitacion");
+
+    if (progreso) {
+        progreso.style.display = "none";
+    }
+
     mostrarPantalla(pantallaResumen);
 });
 window.addEventListener("load", function () {
