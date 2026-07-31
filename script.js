@@ -483,6 +483,12 @@ botonFinalPrueba.addEventListener("click", () => {
 
     mostrarPantalla(pantallaResumen);
 });
+flatpickr("#fecha-cita", {
+    locale: "es",
+    dateFormat: "Y-m-d",
+    minDate: "today",
+    disableMobile: true
+});
 window.addEventListener("load", function () {
     const pantallaCarga = document.getElementById("pantalla-carga");
     const pantallaFrase = document.getElementById("pantalla-frase");
