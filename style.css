@@ -558,6 +558,7 @@ animation: seleccionarComida 0.45s ease-out;
 
 #fecha-cita {
     width: 100%;
+    box-sizing: border-box;
     padding: 16px 18px;
     border: 2px solid #d5d9be;
     border-radius: 16px;
